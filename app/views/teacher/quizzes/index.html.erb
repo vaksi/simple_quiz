@@ -1,0 +1,49 @@
+<div class="right_col" role="main">
+        <div class="">
+
+          <div class="page-title">
+            <div class="title_left">
+              <h3>Quiz</h3>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>All Quiz</h2>
+                  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Title</th>
+                          <th>Course</th>
+                          <th>Question</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <% @quizzes.each do |quiz|%>
+                        <tr>
+                          <td><%= quiz.title %></td>
+                          <td><%= quiz.course.title %></td>
+                          <td><%= link_to questions_total(quiz.id), "/teacher/quizzes/#{quiz.id}/questions" %></td>
+                          <td><%= link_to 'Edit', edit_teacher_quiz_path(quiz) %>|<%= link_to 'Delete',  { action: :destroy, id: quiz.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>   
+                        </tr>
+                      <% end %>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+</div>
+      <!-- /page content -->

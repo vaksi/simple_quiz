@@ -1,0 +1,30 @@
+default: &default
+  adapter: mysql2
+  username: root
+
+development:
+  <<: *default
+  database: online_quiz
+
+
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: online_quiz_development
+
+test:
+  <<: *default
+  database: online_quiz_test
+
+production:
+  <<: *default
+  database: online_quiz_test
+  username: root
+  password: <%= ENV['ONLINE_QUIZ_DATABASE_PASSWORD'] %>

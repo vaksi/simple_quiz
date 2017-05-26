@@ -1,0 +1,46 @@
+<div class="right_col" role="main">
+        <div class="">
+
+          <div class="page-title">
+            <div class="title_left">
+              <h3>Course</h3>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>All Course</h2>
+                  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Title</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <% @courses.each do |course|%>
+                        <tr>
+                          <td><%= course.title %></td>
+                          <td><%= link_to 'Edit', edit_teacher_course_path(course) %>|<%= link_to 'Delete',  { action: :destroy, id: course.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                          
+                        </tr>
+                      <% end %>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+</div>
+      <!-- /page content -->
